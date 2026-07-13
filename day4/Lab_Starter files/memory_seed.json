@@ -1,0 +1,30 @@
+{
+  "user_id": "user_01",
+  "past_interactions": [
+    {
+      "date": "2026-05-01",
+      "topic": "Prompt engineering",
+      "summary": "The learner practiced using role, instruction, context, constraints, and examples to improve model responses."
+    },
+    {
+      "date": "2026-05-01",
+      "topic": "Gradio",
+      "summary": "The learner built a simple chatbot interface using Gradio ChatInterface."
+    },
+    {
+      "date": "2026-05-02",
+      "topic": "Stateless chatbot",
+      "summary": "The learner learned that without memory, each input is treated independently."
+    },
+    {
+      "date": "2026-05-02",
+      "topic": "Basic memory",
+      "summary": "The learner learned that appending chat history helps the bot remember but causes the prompt to grow quickly."
+    }
+  ],
+  "saved_facts": [
+    "The learner is working on Project 1: Context-Aware Chatbot with Memory.",
+    "The learner has not learned full RAG yet.",
+    "The learner should focus on memory, retrieval, and prompt structure first."
+  ]
+}
