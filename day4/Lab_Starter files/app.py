@@ -64,15 +64,23 @@ input -> retrieve memory -> build prompt -> call model -> save response -> retur
 
 import os
 import json
+from pathlib import Path
 from groq import Groq
 import gradio as gr
 from datetime import datetime
+from dotenv import load_dotenv
+
+ENV_FILE = Path(__file__).with_name(".env")
+load_dotenv(dotenv_path=ENV_FILE, override=True)
 
 # Connect to Groq API
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+api_key = os.getenv("GROQ_API_KEY")
+client = Groq(api_key=api_key)
 
 # File for storing conversation history
-JSON_FILE = "chat.json"
+CHAT_FILE = "chat.json"
+
+MEMORY_SEED_FILE = "memory_seed.json"
 
 # File for storing static user profile info
 # Example: skills, preferences, background info
@@ -80,17 +88,21 @@ MD_FILE = "skills.md"
 
 def load_memory():
     try:
-        with open(JSON_FILE, "r") as f:
+        with open(CHAT_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     except:
         # Return empty list if file doesn't exist yet
         return []
 
-def get_timestamp():
-    return datetime.now().astimezone().isoformat(timespec="seconds")
+def load_memory_seed():
+    try:
+        with open(MEMORY_SEED_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except:
+        return {}
 
 def save_memory(memory):
-    with open(JSON_FILE, "w", encoding="utf-8") as f:
+    with open(CHAT_FILE, "w", encoding="utf-8") as f:
         json.dump(memory, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
@@ -106,12 +118,31 @@ def get_recent_history(memory, n=5):
     # Get the last n messages from memory
     return memory[-n:]
 
-def build_messages(prompt, memory, profile):
+def get_timestamp():
+    return datetime.now().astimezone().isoformat(timespec="seconds")
+
+def build_messages(prompt, memory, profile, seed_memory):
     # Start with system prompt including profile info
+    system_prompt = f"""
+    You are a helpful chatbot.
+
+    Use the user's profile and memory when relevant.
+    Do not invent personal facts.
+    If the answer is not in the memory, say "I don't know."
+
+    User profile:
+    {profile}
+
+    Starting memory:
+    {json.dumps(seed_memory, indent=2)}
+    """
+
+
+
     messages = [
         {
             "role": "system",
-            "content": f"User profile:\n{profile}"
+            "content": system_prompt
         }
     ]
     
@@ -142,6 +173,7 @@ def build_messages(prompt, memory, profile):
 def chat_bot(prompt, history):
     # Load previous chat memory
     chat_memory = load_memory()
+    seed_memory = load_memory_seed()
 
     # Load fixed profile memory
     try:
@@ -151,7 +183,7 @@ def chat_bot(prompt, history):
         profile_memory = ""
 
     # Build messages for the model
-    messages = build_messages(prompt, chat_memory, profile_memory)
+    messages = build_messages(prompt, chat_memory, profile_memory, seed_memory)
 
     # Send messages to the model
     response = client.chat.completions.create(
