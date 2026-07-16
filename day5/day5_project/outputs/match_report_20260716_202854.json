@@ -1,0 +1,285 @@
+{
+  "meta": {
+    "model": "ollama/gemma4:e2b",
+    "resume_path": "inputs/weak_resume.pdf",
+    "job_path": "inputs/job_unrelated.txt",
+    "timestamp": "20260716_202854"
+  },
+  "resume_profile": {
+    "name": "JAMIE LEE",
+    "contact": {
+      "email": "jamie@gmail.com",
+      "phone": "",
+      "linkedin": "",
+      "github": "",
+      "portfolio": ""
+    },
+    "summary": "",
+    "education": [
+      {
+        "school": "DigiPen Institute of Technology Singapore",
+        "degree": "Bachelor of Science in Real-Time Interactive Simulation (RTIS)",
+        "graduation_date": "May 2026",
+        "courses": []
+      }
+    ],
+    "projects": [
+      {
+        "title": "3D Game",
+        "date": "2025",
+        "bullets": [
+          "Made a game with a game loop and sprite rendering.",
+          "Built a level editor.",
+          "Added mob spawner and enemy AI.",
+          "Implemented HP bar and HUD using C++."
+        ]
+      },
+      {
+        "title": "Game Jam Project",
+        "date": "2024",
+        "bullets": [
+          "Shipped a game in 48 hours.",
+          "Did collision detection.",
+          "Made asset pipeline."
+        ]
+      },
+      {
+        "title": "Multiplayer Game",
+        "date": "2023",
+        "bullets": [
+          "Worked on multiplayer netcode.",
+          "Built game loop and tiled map loading."
+        ]
+      }
+    ],
+    "experience": [],
+    "skills": {
+      "languages": [
+        "C++"
+      ],
+      "frameworks": [
+        "Unity",
+        "Unreal"
+      ],
+      "tools": [
+        "ImGUI"
+      ],
+      "concepts": [
+        "game loop",
+        "sprite rendering",
+        "collision detection",
+        "asset pipeline",
+        "multiplayer netcode",
+        "tiled map loading"
+      ],
+      "platforms": []
+    }
+  },
+  "jd_profile": {
+    "job_title": "Marketing Specialist \u2014 Digital Campaigns",
+    "company": "FreshMart Singapore Pte Ltd",
+    "location": "Singapore",
+    "experience_level": "1\u20132 years of experience in digital marketing or a related field",
+    "required_skills": [
+      "Proficiency in Google Ads and Meta Ads Manager",
+      "Strong copywriting skills in English",
+      "Experience with email marketing platforms (Mailchimp, Klaviyo, or similar)",
+      "Analytical mindset: comfortable reading performance dashboards"
+    ],
+    "preferred_skills": [
+      "Experience with A/B testing and conversion rate optimisation",
+      "Familiarity with SEO fundamentals",
+      "Knowledge of customer segmentation and lifecycle marketing",
+      "Graphic design skills (Canva, Figma, or Adobe suite)"
+    ],
+    "tools_technologies": [
+      "Google Ads",
+      "Meta Ads Manager",
+      "Google Analytics",
+      "Meta Business Suite",
+      "Mailchimp",
+      "Klaviyo",
+      "Canva",
+      "Figma",
+      "Adobe suite"
+    ],
+    "responsibilities": [
+      "Plan and execute multi-channel digital marketing campaigns (Google Ads, Meta, TikTok, email)",
+      "Manage social media content calendars and community engagement",
+      "Analyse campaign performance using Google Analytics and Meta Business Suite",
+      "Write copy for email newsletters, landing pages, and social media posts",
+      "Coordinate with the creative team for campaign assets",
+      "Report on KPIs: CAC, ROAS, CTR, conversion rate, retention"
+    ],
+    "soft_skills": [
+      "Creative flair",
+      "Attention to brand consistency"
+    ],
+    "buzzwords": [
+      "digital marketing campaigns",
+      "customer acquisition",
+      "brand awareness",
+      "KPIs",
+      "CAC",
+      "ROAS",
+      "CTR",
+      "conversion rate",
+      "retention"
+    ],
+    "deal_breakers": []
+  },
+  "keyword_match": {
+    "present": [],
+    "missing": [
+      {
+        "keyword": "Proficiency in Google Ads and Meta Ads Manager",
+        "importance": "required",
+        "suggested_section": "skills|experience",
+        "why_it_matters": "The candidate lacks experience with specific paid advertising platforms required for the role."
+      },
+      {
+        "keyword": "Strong copywriting skills in English",
+        "importance": "required",
+        "suggested_section": "summary|experience",
+        "why_it_matters": "The job requires strong writing and marketing communication abilities."
+      },
+      {
+        "keyword": "Experience with email marketing platforms (Mailchimp, Klaviyo, or similar)",
+        "importance": "required",
+        "suggested_section": "experience|skills",
+        "why_it_matters": "The role requires experience managing email marketing campaigns and tools."
+      },
+      {
+        "keyword": "Analytical mindset: comfortable reading performance dashboards",
+        "importance": "required",
+        "suggested_section": "summary|experience",
+        "why_it_matters": "The candidate needs to demonstrate comfort in analyzing marketing performance data."
+      }
+    ],
+    "keyword_match_score": 0
+  },
+  "bullets": {
+    "bullets": [
+      {
+        "source": "projects",
+        "parent_title": "3D Game",
+        "bullet_text": "Made a game with a game loop and sprite rendering.",
+        "has_action_verb": true,
+        "has_specific_technology": false,
+        "has_measurable_impact": false,
+        "level": "L1_OK",
+        "what_is_missing": "Specific technology or measurable impact."
+      },
+      {
+        "source": "projects",
+        "parent_title": "3D Game",
+        "bullet_text": "Built a level editor.",
+        "has_action_verb": true,
+        "has_specific_technology": false,
+        "has_measurable_impact": false,
+        "level": "L1_OK",
+        "what_is_missing": "Specific technology or measurable impact."
+      },
+      {
+        "source": "projects",
+        "parent_title": "3D Game",
+        "bullet_text": "Added mob spawner and enemy AI.",
+        "has_action_verb": true,
+        "has_specific_technology": false,
+        "has_measurable_impact": false,
+        "level": "L1_OK",
+        "what_is_missing": "Specific technology or measurable impact."
+      },
+      {
+        "source": "projects",
+        "parent_title": "3D Game",
+        "bullet_text": "Implemented HP bar and HUD using C++.",
+        "has_action_verb": true,
+        "has_specific_technology": true,
+        "has_measurable_impact": false,
+        "level": "L2_BETTER",
+        "what_is_missing": "Measurable impact."
+      },
+      {
+        "source": "projects",
+        "parent_title": "Game Jam Project",
+        "bullet_text": "Shipped a game in 48 hours.",
+        "has_action_verb": true,
+        "has_specific_technology": false,
+        "has_measurable_impact": true,
+        "level": "L2_BETTER",
+        "what_is_missing": "Specific technology."
+      },
+      {
+        "source": "projects",
+        "parent_title": "Game Jam Project",
+        "bullet_text": "Did collision detection.",
+        "has_action_verb": true,
+        "has_specific_technology": false,
+        "has_measurable_impact": false,
+        "level": "L1_OK",
+        "what_is_missing": "Specific technology or measurable impact."
+      },
+      {
+        "source": "projects",
+        "parent_title": "Game Jam Project",
+        "bullet_text": "Made asset pipeline.",
+        "has_action_verb": true,
+        "has_specific_technology": false,
+        "has_measurable_impact": false,
+        "level": "L1_OK",
+        "what_is_missing": "Specific technology or measurable impact."
+      },
+      {
+        "source": "projects",
+        "parent_title": "Multiplayer Game",
+        "bullet_text": "Worked on multiplayer netcode.",
+        "has_action_verb": true,
+        "has_specific_technology": false,
+        "has_measurable_impact": false,
+        "level": "L1_OK",
+        "what_is_missing": "Specific technology or measurable impact."
+      },
+      {
+        "source": "projects",
+        "parent_title": "Multiplayer Game",
+        "bullet_text": "Built game loop and tiled map loading.",
+        "has_action_verb": true,
+        "has_specific_technology": false,
+        "has_measurable_impact": false,
+        "level": "L1_OK",
+        "what_is_missing": "Specific technology or measurable impact."
+      }
+    ],
+    "bullet_quality_avg": 33
+  },
+  "jargon": {
+    "flags": [],
+    "jargon_score": 100
+  },
+  "structure": {
+    "page_count_estimate": 1,
+    "single_column_likely": true,
+    "section_headings_present": [
+      "PROJECTS",
+      "EDUCATION",
+      "SKILLS"
+    ],
+    "section_headings_missing": [],
+    "reverse_chronological_likely": true,
+    "contact_info_at_top": true,
+    "length_appropriate": true,
+    "no_images_or_graphics": true,
+    "ats_red_flags": [],
+    "structure_score": 100
+  },
+  "background_fit": {
+    "candidate_background_summary": "The candidate holds a Bachelor of Science in Real-Time Interactive Simulation and possesses technical skills in C++, Unity, and Unreal Engine.",
+    "role_requirements_summary": "The role requires 1\u20132 years of experience in digital marketing, proficiency in platforms like Google Ads and Meta Ads Manager, strong copywriting, and analytical reporting of campaign KPIs.",
+    "alignment_commentary": "There is very little alignment between the candidate's background in real-time interactive simulation and the requirements for a digital marketing specialist role. The r\u00e9sum\u00e9 profile does not demonstrate any experience or skills related to digital advertising, content creation, or marketing analytics.",
+    "background_fit_score": 0
+  },
+  "overall_score": 33,
+  "passes_ats_threshold": false,
+  "summary": "\u2022 There is very little alignment between the candidate's technical background and the requirements for a digital marketing specialist role.\n\u2022 The profile lacks experience and skills related to required advertising platforms, copywriting, and performance analytics.\n\u2022 The overall score is 33, reflecting a zero background fit for this specific job."
+}

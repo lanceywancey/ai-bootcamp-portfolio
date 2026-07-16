@@ -1,0 +1,472 @@
+{
+  "meta": {
+    "model": "ollama/gemma4:e2b",
+    "resume_path": "inputs/strong_resume.pdf",
+    "job_path": "inputs/job_rtis_systems_engineer.txt",
+    "timestamp": "20260716_194508"
+  },
+  "resume_profile": {
+    "name": "ALEX TAN MING WEI",
+    "contact": {
+      "email": "alex.tan@email.com",
+      "phone": "+65 9123 4567",
+      "linkedin": "linkedin.com/in/alextan",
+      "github": "github.com/alextan",
+      "portfolio": ""
+    },
+    "summary": "Systems-oriented RTIS graduate with hands-on experience building real-time simulation systems, REST APIs, and containerised infrastructure tools.",
+    "education": [
+      {
+        "school": "DigiPen Institute of Technology Singapore",
+        "degree": "Bachelor of Science in Real-Time Interactive Simulation (RTIS)",
+        "graduation_date": "May 2026",
+        "courses": [
+          "Operating Systems",
+          "Computer Networks",
+          "Distributed Systems",
+          "Computer Graphics",
+          "Algorithms & Data Structures"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "Distributed Task Scheduler",
+        "date": "Aug 2025 ? Dec 2025",
+        "bullets": [
+          "Designed a Python-based distributed task scheduler using Redis and Docker that reduced job processing time by 40%, handling 500+ concurrent tasks.",
+          "Implemented RESTful APIs with FastAPI and deployed on AWS ECS using Terraform, achieving 99.9% uptime over a 3-month period.",
+          "Automated CI/CD pipeline with GitHub Actions, cutting deployment time from 30 minutes to under 5 minutes."
+        ]
+      },
+      {
+        "title": "Real-Time Physics Engine",
+        "date": "Jan 2025 ? May 2025",
+        "bullets": [
+          "Built a real-time application loop in C++ with Vulkan rendering that sustained 60 fps on 500+ dynamic objects simultaneously.",
+          "Implemented spatial algorithms (AABB broad-phase, SAT narrow-phase) in C++, reducing collision computation time by 35%.",
+          "Deployed cross-platform on Windows and Linux using CMake."
+        ]
+      },
+      {
+        "title": "Linux Monitoring Dashboard",
+        "date": "Mar 2024 ? Jun 2024",
+        "bullets": [
+          "Developed a Prometheus + Grafana monitoring stack with Bash automation scripts that detected system anomalies 3x faster than manual log review.",
+          "Containerised the stack with Docker Compose; integrated Kubernetes Helm charts for scaling across 10-node clusters."
+        ]
+      }
+    ],
+    "experience": [
+      {
+        "title": "Systems Engineering Intern",
+        "company": "Accenture Singapore",
+        "date": "May 2025 ? Aug 2025",
+        "bullets": [
+          "Automated infrastructure provisioning with Terraform and Ansible across AWS GCP environments, reducing manual setup time by 60%.",
+          "Wrote Python scripts to parse and validate Kubernetes pod logs, enabling the team to resolve incidents 50% faster."
+        ]
+      }
+    ],
+    "skills": {
+      "languages": [
+        "Python",
+        "C++",
+        "Go",
+        "Bash"
+      ],
+      "frameworks": [
+        "FastAPI",
+        "Pytest",
+        "gRPC"
+      ],
+      "tools": [
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "Prometheus",
+        "Grafana",
+        "GitHub Actions"
+      ],
+      "concepts": [
+        "REST API",
+        "microservices",
+        "CI/CD",
+        "distributed systems",
+        "TCP/IP",
+        "DNS"
+      ],
+      "platforms": [
+        "AWS",
+        "GCP",
+        "Linux"
+      ]
+    }
+  },
+  "jd_profile": {
+    "job_title": "Systems Engineer \u2014 Infrastructure & Platform",
+    "company": "Phillip Securities Pte Ltd",
+    "location": "Singapore (Hybrid)",
+    "experience_level": "Entry to Mid Level",
+    "required_skills": [
+      "Proficiency in at least one systems programming language: Python, Go, or C++",
+      "Experience with Linux operating systems and shell scripting (Bash)",
+      "Familiarity with Docker and Kubernetes for containerised workloads",
+      "Understanding of networking fundamentals: TCP/IP, DNS, load balancing",
+      "Experience with at least one cloud platform: AWS, GCP, or Azure",
+      "Strong problem-solving skills",
+      "attention to detail",
+      "Good written and verbal communication in English"
+    ],
+    "preferred_skills": [
+      "Experience with CI/CD pipelines (GitHub Actions, Jenkins, or equivalent)",
+      "Familiarity with Infrastructure as Code (Terraform, Pulumi)",
+      "Knowledge of distributed systems and consensus algorithms",
+      "Exposure to financial systems or trading platforms",
+      "Experience with observability tools (Prometheus, Grafana)"
+    ],
+    "tools_technologies": [
+      "Python",
+      "Go",
+      "C++",
+      "Terraform",
+      "Ansible",
+      "Prometheus",
+      "Grafana",
+      "ELK stack",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "GCP",
+      "Azure",
+      "Bash",
+      "TCP/IP",
+      "DNS",
+      "load balancing",
+      "GitHub Actions",
+      "Jenkins",
+      "Pulumi"
+    ],
+    "responsibilities": [
+      "Design and implement RESTful APIs and microservices using Python and Go",
+      "Automate infrastructure provisioning with Terraform and Ansible",
+      "Monitor system health using Prometheus, Grafana, and ELK stack",
+      "Participate in on-call rotation and incident response",
+      "Write technical documentation and runbooks",
+      "Collaborate with software engineers, data engineers, and QA teams"
+    ],
+    "soft_skills": [
+      "Strong problem-solving skills",
+      "attention to detail",
+      "Good written communication",
+      "Good verbal communication"
+    ],
+    "buzzwords": [
+      "Infrastructure",
+      "Platform",
+      "microservices",
+      "scaling",
+      "production systems"
+    ],
+    "deal_breakers": []
+  },
+  "keyword_match": {
+    "present": [
+      {
+        "keyword": "Python",
+        "category": "language",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "C++",
+        "category": "language",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "Go",
+        "category": "language",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "Bash",
+        "category": "language",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "Docker",
+        "category": "tool",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "Kubernetes",
+        "category": "tool",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "Terraform",
+        "category": "tool",
+        "found_in": "projects|experience|skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "Ansible",
+        "category": "tool",
+        "found_in": "experience|skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "Prometheus",
+        "category": "tool",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "Grafana",
+        "category": "tool",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "GitHub Actions",
+        "category": "tool",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "AWS",
+        "category": "platform",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "GCP",
+        "category": "platform",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "Linux",
+        "category": "platform",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "TCP/IP",
+        "category": "concept",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "DNS",
+        "category": "concept",
+        "found_in": "skills",
+        "exact_match": true
+      },
+      {
+        "keyword": "distributed systems",
+        "category": "concept",
+        "found_in": "skills",
+        "exact_match": true
+      }
+    ],
+    "missing": [
+      {
+        "keyword": "load balancing",
+        "category": "concept",
+        "importance": "required",
+        "suggested_section": "skills",
+        "why_it_matters": "Required for understanding networking fundamentals, specifically load balancing."
+      },
+      {
+        "keyword": "Azure",
+        "category": "platform",
+        "importance": "required",
+        "suggested_section": "skills",
+        "why_it_matters": "The JD lists Azure as an option; the candidate has AWS and GCP experience, but not Azure."
+      },
+      {
+        "keyword": "Jenkins",
+        "category": "tool",
+        "importance": "preferred",
+        "suggested_section": "skills",
+        "why_it_matters": "Preferred CI/CD tool listed in the JD; candidate has GitHub Actions experience."
+      },
+      {
+        "keyword": "Pulumi",
+        "category": "tool",
+        "importance": "preferred",
+        "suggested_section": "skills",
+        "why_it_matters": "Preferred IaC tool listed in the JD; candidate has Terraform experience."
+      },
+      {
+        "keyword": "financial systems",
+        "category": "buzzword",
+        "importance": "preferred",
+        "suggested_section": "experience",
+        "why_it_matters": "Exposure to financial systems is preferred but not explicitly mentioned in the r\u00e9sum\u00e9."
+      }
+    ],
+    "keyword_match_score": 90.0
+  },
+  "bullets": {
+    "bullets": [
+      {
+        "source": "projects",
+        "parent_title": "Distributed Task Scheduler",
+        "bullet_text": "Designed a Python-based distributed task scheduler using Redis and Docker that reduced job processing time by 40%, handling 500+ concurrent tasks.",
+        "has_action_verb": true,
+        "has_specific_technology": true,
+        "has_measurable_impact": true,
+        "level": "L3_BEST",
+        "what_is_missing": ""
+      },
+      {
+        "source": "projects",
+        "parent_title": "Distributed Task Scheduler",
+        "bullet_text": "Implemented RESTful APIs with FastAPI and deployed on AWS ECS using Terraform, achieving 99.9% uptime over a 3-month period.",
+        "has_action_verb": true,
+        "has_specific_technology": true,
+        "has_measurable_impact": true,
+        "level": "L3_BEST",
+        "what_is_missing": ""
+      },
+      {
+        "source": "projects",
+        "parent_title": "Distributed Task Scheduler",
+        "bullet_text": "Automated CI/CD pipeline with GitHub Actions, cutting deployment time from 30 minutes to under 5 minutes.",
+        "has_action_verb": true,
+        "has_specific_technology": true,
+        "has_measurable_impact": true,
+        "level": "L3_BEST",
+        "what_is_missing": ""
+      },
+      {
+        "source": "projects",
+        "parent_title": "Real-Time Physics Engine",
+        "bullet_text": "Built a real-time application loop in C++ with Vulkan rendering that sustained 60 fps on 500+ dynamic objects simultaneously.",
+        "has_action_verb": true,
+        "has_specific_technology": true,
+        "has_measurable_impact": true,
+        "level": "L3_BEST",
+        "what_is_missing": ""
+      },
+      {
+        "source": "projects",
+        "parent_title": "Real-Time Physics Engine",
+        "bullet_text": "Implemented spatial algorithms (AABB broad-phase, SAT narrow-phase) in C++, reducing collision computation time by 35%.",
+        "has_action_verb": true,
+        "has_specific_technology": true,
+        "has_measurable_impact": true,
+        "level": "L3_BEST",
+        "what_is_missing": ""
+      },
+      {
+        "source": "projects",
+        "parent_title": "Real-Time Physics Engine",
+        "bullet_text": "Deployed cross-platform on Windows and Linux using CMake.",
+        "has_action_verb": true,
+        "has_specific_technology": true,
+        "has_measurable_impact": false,
+        "level": "L2_BETTER",
+        "what_is_missing": "Missing measurable impact or result."
+      },
+      {
+        "source": "projects",
+        "parent_title": "Linux Monitoring Dashboard",
+        "bullet_text": "Developed a Prometheus + Grafana monitoring stack with Bash automation scripts that detected system anomalies 3x faster than manual log review.",
+        "has_action_verb": true,
+        "has_specific_technology": true,
+        "has_measurable_impact": true,
+        "level": "L3_BEST",
+        "what_is_missing": ""
+      },
+      {
+        "source": "projects",
+        "parent_title": "Linux Monitoring Dashboard",
+        "bullet_text": "Containerised the stack with Docker Compose; integrated Kubernetes Helm charts for scaling across 10-node clusters.",
+        "has_action_verb": true,
+        "has_specific_technology": true,
+        "has_measurable_impact": true,
+        "level": "L3_BEST",
+        "what_is_missing": ""
+      },
+      {
+        "source": "experience",
+        "parent_title": "Systems Engineering Intern",
+        "bullet_text": "Automated infrastructure provisioning with Terraform and Ansible across AWS GCP environments, reducing manual setup time by 60%.",
+        "has_action_verb": true,
+        "has_specific_technology": true,
+        "has_measurable_impact": true,
+        "level": "L3_BEST",
+        "what_is_missing": ""
+      },
+      {
+        "source": "experience",
+        "parent_title": "Systems Engineering Intern",
+        "bullet_text": "Wrote Python scripts to parse and validate Kubernetes pod logs, enabling the team to resolve incidents 50% faster.",
+        "has_action_verb": true,
+        "has_specific_technology": true,
+        "has_measurable_impact": true,
+        "level": "L3_BEST",
+        "what_is_missing": ""
+      }
+    ],
+    "bullet_quality_avg": 93
+  },
+  "jargon": {
+    "flags": [
+      {
+        "bullet_text": "Implemented RESTful APIs with FastAPI and deployed on AWS ECS using Terraform, achieving 99.9% uptime over a 3-month period.",
+        "term_used": "RESTful APIs",
+        "suggested_translation": "Design and implement RESTful APIs",
+        "severity": "medium"
+      },
+      {
+        "bullet_text": "Automated CI/CD pipeline with GitHub Actions, cutting deployment time from 30 minutes to under 5 minutes.",
+        "term_used": "CI/CD pipeline",
+        "suggested_translation": "Experience with CI/CD pipelines",
+        "severity": "medium"
+      }
+    ],
+    "jargon_score": 80
+  },
+  "structure": {
+    "page_count_estimate": 1,
+    "single_column_likely": true,
+    "section_headings_present": [
+      "SUMMARY",
+      "PROJECTS",
+      "EXPERIENCE",
+      "EDUCATION",
+      "SKILLS"
+    ],
+    "section_headings_missing": [],
+    "reverse_chronological_likely": true,
+    "contact_info_at_top": true,
+    "length_appropriate": true,
+    "no_images_or_graphics": true,
+    "ats_red_flags": [
+      {
+        "issue": "Date ambiguity/Future dates",
+        "evidence": "Project dates (e.g., Aug 2025 ?, Dec 2025) and Education date (May 2026) suggest the document is being written in advance or reflects planned future experience."
+      }
+    ],
+    "structure_score": 100
+  },
+  "background_fit": {
+    "candidate_background_summary": "The candidate is a Systems graduate with hands-on experience in building real-time simulation systems and deploying containerized infrastructure.",
+    "role_requirements_summary": "The role requires a Systems Engineer proficient in programming, cloud infrastructure (AWS/GCP), containerization (Docker/Kubernetes), and automation using tools like Terraform and monitoring stacks.",
+    "alignment_commentary": "The candidate demonstrates strong alignment with the core technical requirements, possessing proficiency in multiple required languages (Python, Go, C++, Bash) and extensive experience with key infrastructure tools such as Docker, Kubernetes, Terraform, AWS/GCP, and Prometheus/Grafana. The professional experience directly addresses responsibilities related to infrastructure automation and system monitoring.",
+    "background_fit_score": 92
+  },
+  "overall_score": 91,
+  "passes_ats_threshold": true,
+  "summary": "This is a very strong analysis. The AI has successfully identified high-quality, quantifiable achievements and mapped them effectively to the required skills in the job description.\n\nHere is a detailed breakdown of the analysis, followed by actionable recommendations for the candidate to maximize their chances.\n\n---\n\n## \ud83c\udfaf Overall Assessment\n\n**Overall Score: 91/100 (Passes ATS Threshold)**\n\nThe resume demonstrates **excellent technical depth and strong execution skills**. The candidate successfully bridges theoretical knowledge with practical, measurable results across complex systems (distributed task scheduling, real-time physics). The structure is clean, professional, and highly readable.\n\n**Key Takeaway:** The candidate is a very strong technical fit for the infrastructure/systems aspects of the role. The primary focus should now be on **explicitly addressing the preferred tools** mentioned in the JD (Azure, Jenkins, Pulumi) to close any minor gaps identified by the initial analysis.\n\n---\n\n## \ud83d\udd0d Deep Dive & Actionable Recommendations\n\n### 1. Addressing Skill Gaps (The Azure/Tool Mismatch)\n\nThe initial analysis correctly flagged a potential mismatch regarding cloud providers and specific tools.\n\n*   **JD Requirement:** Azure is listed as an option.\n*   **Candidate Experience:** AWS and GCP experience.\n*   **Action:** If the candidate has *any* exposure to Azure (even basic concepts or documentation), it must be added immediately. If they have zero, they should focus on framing their AWS/GCP skills in a way that implies transferable cloud knowledge.\n\n*   **JD Preference:** Jenkins and Pulumi are preferred IaC/CI/CD tools.\n*   **Candidate Experience:** GitHub Actions and Terraform.\n*   **Action:** In the **Skills** section, ensure these preferred keywords are listed prominently. In the bullet points, emphasize how their existing skills *map* to the preferred ones (e.g., \"Automated CI/CD pipeline with GitHub Actions\" is a great start; they should aim to show familiarity with Jenkins concepts if possible).\n\n### 2. Enhancing Bullet Points (Maximizing Impact)\n\nThe project bullets are already excellent (L3\\_BEST), but we can refine them slightly for maximum impact, especially concerning the \"financial systems\" buzzword.\n\n*   **Focus on Business Value:** While the technical metrics are superb, try to connect the work to business outcomes where possible.\n    *   *Example Refinement:* Instead of just \"reduced job processing time by 40%,\" consider: \"Optimized distributed task scheduling using Redis and Docker, resulting in a **40% reduction in operational latency** for critical data processing.\"\n\n*   **Integrating Buzzwords:** If the candidate has *any* exposure to financial data pipelines or systems (even academic projects), try to weave that context into the experience section. If they don't have direct finance experience, focus on the *systems* aspect of handling high-volume, sensitive data, which is highly relevant.\n\n### 3. Structure and ATS Optimization\n\nThe structure score is perfect (100). No changes are needed here, but ensure the following:\n\n*   **Skills Section:** This section must be dense with keywords. Create a dedicated \"Cloud Platforms,\" \"DevOps Tools,\" and \"Programming Languages\" grouping to make it instantly scannable for ATS systems.\n    *   *Must Include:* AWS, GCP, Docker, Kubernetes, Terraform, Python, Go, C++, FastAPI, Prometheus, Grafana.\n\n### 4. Addressing the ATS Red Flag (Critical)\n\nThe analysis noted a critical red flag: **Date ambiguity/Future dates** (e.g., Aug 2025, May 2026).\n\n*   **Action:** **This must be corrected immediately.** If these are placeholders or future plans, they should be removed or clearly marked as \"Expected\" if necessary, but never presented as current experience. This is the single biggest risk to credibility.\n\n---\n\n## \u2705 Summary Checklist for the Candidate\n\n| Area | Status | Action Required |\n| :--- | :--- | :--- |\n| **Cloud Coverage** | Good (AWS/GCP) | If possible, add any Azure exposure. |\n| **Tool Alignment** | Needs Refinement | Ensure Terraform/GitHub Actions are highlighted as equivalents to Pulumi/Jenkins where appropriate. |\n| **Quantification** | Excellent | Keep all measurable impact metrics in the bullet points. |\n| **ATS Safety** | **CRITICAL RISK** | **Remove or correct all future dates immediately.** |\n| **Buzzwords** | Moderate | Frame systems work as handling high-volume, complex data (relevant to finance). |"
+}
