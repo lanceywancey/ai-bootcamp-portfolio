@@ -38,9 +38,6 @@ if run:
         with st.spinner("Extracting résumé profile..."):
             resume_profile = extract_resume_profile(resume_text)
 
-        with st.spinner("Extracting résumé profile..."):
-            resume_profile = extract_resume_profile(resume_text)
-
         with st.spinner("Extracting job description profile..."):
             jd_profile = extract_jd_profile(jd_text)
 

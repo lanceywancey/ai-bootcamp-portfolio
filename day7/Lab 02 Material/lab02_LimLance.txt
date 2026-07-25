@@ -1,0 +1,9 @@
+============================================================
+STUDENT NAME : [Lim Lance Ivanne Maon]
+LAB ASSIGNMENT : Lab 02
+============================================================
+[GITHUB REPOSITORY LINK]
+https://github.com/lanceywancey/ai-bootcamp-portfolio.git
+[STREAMLIT LIVE APPLICATION LINK]
+https://your-custom-subdomain.streamlit.app/
+============================================================
