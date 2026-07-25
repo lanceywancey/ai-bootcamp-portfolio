@@ -1,0 +1,29 @@
+# Node_Info.txt
+# Format:
+# NodeID  X   Y   TypeID  Name
+#
+# TypeID:
+# 0 = School
+# 1 = Shop
+# 2 = Mall
+# 3 = HDB / Residential
+# 4 = Park / Open Area
+
+0   10   10   0   DigiPen_School
+1   25   12   1   Coffee_Shop
+2   40   15   1   Book_Store
+3   55   12   2   Central_Mall
+4   70   18   3   HDB_Block_A
+5   85   25   3   HDB_Block_B
+
+6   20   35   4   Green_Park
+7   38   42   1   Convenience_Shop
+8   55   40   2   West_Mall
+9   72   42   4   Community_Park
+10  88   45   3   HDB_Block_C
+
+11  15   60   0   Primary_School
+12  35   65   3   HDB_Block_D
+13  55   62   1   Food_Court
+14  75   65   2   East_Mall
+15  92   70   4   Sports_Field

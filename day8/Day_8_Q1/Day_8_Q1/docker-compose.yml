@@ -1,0 +1,24 @@
+services:
+  faculty-training-app:
+    build: .
+    ports:
+      - "60001:5000"
+    volumes:
+      - .:/app
+    command: >
+      sh -c "g++ /app/cpp/multiply.cpp -o /app/multiply &&
+             python /app/app_multiply.py"
+
+  jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile.jenkins
+    ports:
+      - "60002:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - .:/workspace
+
+volumes:
+  jenkins_home:

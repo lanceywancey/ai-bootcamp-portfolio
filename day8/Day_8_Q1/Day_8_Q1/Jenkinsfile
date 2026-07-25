@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Python smoke test') {
+            steps {
+                sh 'cd /workspace && python3 -m pytest -q test_basic.py'
+            }
+        }
+
+        stage('Compile C++') {
+            steps {
+                sh 'cd /workspace && g++ -Wall -Wextra cpp/multiply.cpp -o multiply'
+            }
+        }
+
+        stage('Verify C++ from Python') {
+            steps {
+                sh 'cd /workspace && python3 python/check_multiply.py'
+            }
+        }
+    }
+}
