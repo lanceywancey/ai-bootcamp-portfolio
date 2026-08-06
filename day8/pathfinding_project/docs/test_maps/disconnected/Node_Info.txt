@@ -1,0 +1,4 @@
+# NodeID X Y TypeID Name
+0 0 0 0 School
+1 10 0 1 Shop
+2 30 20 4 Isolated_Park

@@ -1,0 +1,41 @@
+Started by user Lim Lance Ivanne Maon
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/phase3-python-test
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Python smoke test)
+[Pipeline] sh
++ cd /workspace
++ python3 -m pytest -q test_basic.py
+.                                                                        [100%]
+1 passed in 0.07s
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Compile C++)
+[Pipeline] sh
++ cd /workspace
++ g++ -Wall -Wextra cpp/multiply.cpp -o multiply
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Verify C++ from Python)
+[Pipeline] sh
++ cd /workspace
++ python3 python/check_multiply.py
+3 * 4 = 12
+0 * 0 = 0
+-3 * 4 = -12
+-3 * -4 = 12
+7 * -5 = -35
+0 * -100 = 0
+1 * 9999 = 9999
+123 * 456 = 56088
+ALL TESTS PASSED
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

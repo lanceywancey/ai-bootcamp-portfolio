@@ -1,0 +1,30 @@
+SMART PARKING AND BIDIRECTIONAL EV SETTLEMENT RULES
+
+All monetary amounts use integer Singapore cents.
+
+1. Valid vehicle types: ICE_CAR, EV_CAR, MOTORCYCLE.
+2. Parking duration must be between 0 and 1440 minutes inclusive.
+3. The first 15 minutes are free.
+4. Car parking after the grace period:
+   - 200 cents for the first started hour.
+   - 150 cents for every additional started hour.
+   - Maximum 2000 cents.
+5. Motorcycle parking after the grace period:
+   - 100 cents for the first started hour.
+   - 75 cents for every additional started hour.
+   - Maximum 1000 cents.
+6. Energy values and tariffs must be non-negative.
+7. Energy amount is rounded to the nearest cent:
+      cents = round(energy_wh * rate_cents_per_kwh / 1000)
+   Use integer half-up rounding for non-negative inputs.
+8. Electricity export is allowed only when:
+   - vehicle_type is EV_CAR;
+   - vehicle_v2g is true;
+   - station_v2g is true;
+   - owner_opt_in is true; and
+   - soc_after_export is at least minimum_departure_soc.
+9. If export_wh is zero, V2G flags do not affect the result.
+10. Net amount:
+      parking_fee + import_cost - export_credit
+11. Negative net amount is valid and means CREDIT to the driver.
+12. Zero net amount means ZERO; a positive amount means PAY.

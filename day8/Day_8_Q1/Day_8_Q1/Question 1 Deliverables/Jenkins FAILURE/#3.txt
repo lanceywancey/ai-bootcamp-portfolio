@@ -1,0 +1,49 @@
+Started by user Lim Lance Ivanne Maon
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/phase3-python-test
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Python smoke test)
+[Pipeline] sh
++ cd /workspace
++ python3 -m pytest -q test_basic.py
+.                                                                        [100%]
+1 passed in 0.06s
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Compile C++)
+[Pipeline] sh
++ cd /workspace
++ g++ -Wall -Wextra cpp/multiply.cpp -o multiply
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Verify C++ from Python)
+[Pipeline] sh
++ cd /workspace
++ python3 python/check_multiply.py
+3 * 4 = 7
+FAILED
+0 * 0 = 0
+-3 * 4 = 1
+FAILED
+-3 * -4 = -7
+FAILED
+7 * -5 = 2
+FAILED
+0 * -100 = -100
+FAILED
+1 * 9999 = 10000
+FAILED
+123 * 456 = 579
+FAILED
+TEST FAILURE
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE

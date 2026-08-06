@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Parking Settlement Simulator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main>
+  <header><span>AI BOOTCAMP DAY 12 LAB</span><h1>Smart Parking + EV Energy Settlement</h1>
+    <p>Simulated car-park readings only. No payment or personal data is processed.</p></header>
+  <form method="post">
+    <label>Simulated plate <input value="SGX-DEMO-01" disabled></label>
+    <label>Vehicle type <select name="vehicle_type">
+      <option value="EV_CAR" {% if values.vehicle_type == "EV_CAR" %}selected{% endif %}>EV_CAR</option>
+      <option value="ICE_CAR" {% if values.vehicle_type == "ICE_CAR" %}selected{% endif %}>ICE_CAR</option>
+      <option value="MOTORCYCLE" {% if values.vehicle_type == "MOTORCYCLE" %}selected{% endif %}>MOTORCYCLE</option>
+    </select></label>
+    <label>Parking minutes <input name="parking_minutes" type="number" min="0" max="1440" value="{{ values.parking_minutes }}" required></label>
+    <label>Energy imported (Wh) <input name="import_wh" type="number" min="0" value="{{ values.import_wh }}" required></label>
+    <label>Import tariff (cents/kWh) <input name="import_rate_cents_per_kwh" type="number" min="0" value="{{ values.import_rate_cents_per_kwh }}" required></label>
+    <label>Energy exported (Wh) <input name="export_wh" type="number" min="0" value="{{ values.export_wh }}" required></label>
+    <label>Export tariff (cents/kWh) <input name="export_rate_cents_per_kwh" type="number" min="0" value="{{ values.export_rate_cents_per_kwh }}" required></label>
+    <label>SOC after export (%) <input name="soc_after_export" type="number" min="0" max="100" value="{{ values.soc_after_export }}" required></label>
+    <label>Minimum departure SOC (%) <input name="minimum_departure_soc" type="number" min="0" max="100" value="{{ values.minimum_departure_soc }}" required></label>
+    <fieldset><legend>V2G permissions</legend>
+      <label><input name="vehicle_v2g" type="checkbox" {% if values.vehicle_v2g %}checked{% endif %}> Vehicle capable</label>
+      <label><input name="station_v2g" type="checkbox" {% if values.station_v2g %}checked{% endif %}> Station capable</label>
+      <label><input name="owner_opt_in" type="checkbox" {% if values.owner_opt_in %}checked{% endif %}> Owner opted in</label>
+    </fieldset>
+    <button type="submit">Calculate settlement</button>
+  </form>
+  {% if result %}<section class="result {{ result.get('settlement','error')|lower }}">
+    <h2>Engine result</h2><pre>{{ result|tojson(indent=2) }}</pre>
+  </section>{% endif %}
+</main>
+</body>
+</html>

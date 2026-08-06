@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Replace this example with a student-created boundary case",
+    "input": {"parking_minutes":15,"vehicle_type":"EV_CAR","import_wh":0,"import_rate_cents_per_kwh":0,"export_wh":0,"export_rate_cents_per_kwh":0,"vehicle_v2g":false,"station_v2g":false,"owner_opt_in":false,"soc_after_export":50,"minimum_departure_soc":40},
+    "expected": {"status":"ok","parking_fee_cents":0,"import_cost_cents":0,"export_credit_cents":0,"net_amount_cents":0,"settlement":"ZERO"}
+  }
+]

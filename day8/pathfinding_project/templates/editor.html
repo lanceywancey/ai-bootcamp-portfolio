@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Map Editor</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            color: #172033;
+        }
+        header {
+            background: #172033;
+            color: white;
+            padding: 18px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a, header button {
+            color: white;
+            background: transparent;
+            border: 1px solid #93a3be;
+            border-radius: 7px;
+            padding: 8px 12px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        main { max-width: 1200px; margin: 22px auto; padding: 0 18px 40px; }
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 5px 18px rgba(20, 32, 55, 0.08);
+        }
+        .flash {
+            padding: 11px;
+            border-radius: 7px;
+            margin-bottom: 10px;
+            background: #edf4ff;
+        }
+        .error { background: #fff1f1; }
+        .success { background: #eefaf3; }
+        .add-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            align-items: end;
+        }
+        input, select, button {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #c8d1df;
+            border-radius: 6px;
+        }
+        button { cursor: pointer; }
+        .primary { background: #2154a3; color: white; border: 0; }
+        .danger { background: #b23a3a; color: white; border: 0; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #dfe5ee;
+            text-align: left;
+            vertical-align: top;
+        }
+        .inline-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(80px, 1fr));
+            gap: 6px;
+        }
+        @media (max-width: 900px) {
+            .add-grid, .inline-grid { grid-template-columns: 1fr 1fr; }
+            table, thead, tbody, tr, th, td { display: block; }
+            th { display: none; }
+            tr { border-bottom: 2px solid #ccd5e2; padding: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Protected Map Editor</h1>
+    <div>
+        <a href="{{ url_for('index') }}">Public map</a>
+        <form action="{{ url_for('editor_logout') }}" method="post" style="display:inline">
+            <button type="submit">Log out</button>
+        </form>
+    </div>
+</header>
+
+<main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endwith %}
+
+    <section>
+        <h2>Add node</h2>
+        <form action="{{ url_for('add_node') }}" method="post" class="add-grid">
+            <input name="node_id" type="number" placeholder="Node ID" required>
+            <input name="x" type="number" step="any" placeholder="X" required>
+            <input name="y" type="number" step="any" placeholder="Y" required>
+            <select name="type_id" required>
+                <option value="0">0 School</option>
+                <option value="1">1 Shop</option>
+                <option value="2">2 Mall</option>
+                <option value="3">3 HDB</option>
+                <option value="4">4 Park</option>
+            </select>
+            <input name="name" placeholder="Name_without_spaces" required>
+            <button class="primary" type="submit">Add node</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Existing nodes</h2>
+        <table>
+            <thead>
+                <tr><th>ID</th><th>Edit</th><th>Delete</th></tr>
+            </thead>
+            <tbody>
+            {% for node in nodes %}
+                <tr>
+                    <td>{{ node.node_id }}</td>
+                    <td>
+                        <form
+                            action="{{ url_for('update_node', node_id=node.node_id) }}"
+                            method="post"
+                            class="inline-grid">
+                            <input name="x" type="number" step="any" value="{{ node.x }}" required>
+                            <input name="y" type="number" step="any" value="{{ node.y }}" required>
+                            <input name="type_id" type="number" min="0" max="4" value="{{ node.type_id }}" required>
+                            <input name="name" value="{{ node.name }}" required>
+                            <button class="primary" type="submit">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form
+                            action="{{ url_for('delete_node', node_id=node.node_id) }}"
+                            method="post">
+                            <button class="danger" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Add path</h2>
+        <form action="{{ url_for('add_edge') }}" method="post" class="add-grid">
+            <input name="edge_id" type="number" placeholder="Edge ID" required>
+            <input name="node_a" type="number" placeholder="Node A" required>
+            <input name="node_b" type="number" placeholder="Node B" required>
+            <input name="distance" type="number" min="0" step="any" placeholder="Distance" required>
+            <span></span>
+            <button class="primary" type="submit">Add path</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Existing paths</h2>
+        <table>
+            <thead>
+                <tr><th>ID</th><th>Edit</th><th>Delete</th></tr>
+            </thead>
+            <tbody>
+            {% for edge in edges %}
+                <tr>
+                    <td>{{ edge.edge_id }}</td>
+                    <td>
+                        <form
+                            action="{{ url_for('update_edge', edge_id=edge.edge_id) }}"
+                            method="post"
+                            class="inline-grid">
+                            <input name="node_a" type="number" value="{{ edge.node_a }}" required>
+                            <input name="node_b" type="number" value="{{ edge.node_b }}" required>
+                            <input name="distance" type="number" min="0" step="any" value="{{ edge.distance }}" required>
+                            <span></span>
+                            <button class="primary" type="submit">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form
+                            action="{{ url_for('delete_edge', edge_id=edge.edge_id) }}"
+                            method="post">
+                            <button class="danger" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>

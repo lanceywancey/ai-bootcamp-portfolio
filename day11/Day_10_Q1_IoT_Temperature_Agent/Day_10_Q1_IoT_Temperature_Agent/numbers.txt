@@ -1,0 +1,10 @@
+# numbers.txt
+# Historical indoor temperature readings from an IoT device.
+# Unit: degree Celsius.
+# Timestamp is omitted for this beginner lab.
+
+26.5
+27.0
+27.8
+28.2
+27.5

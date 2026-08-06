@@ -1,0 +1,13 @@
+AI Prompts Used
+
+Prompt 1: Generate additional test cases
+
+Review this C++ integer multiplication program and propose at least four additional test cases. Include each input pair, expected output, and a short reason. Cover useful cases that are not already represented. Do not change the program yet.
+
+Prompt 2:Cross-AI verification
+
+Act as an independent code reviewer. Review the supplied C++ multiplication program and Python verification script. Check correctness, edge-case coverage, input validation, failure reporting, coding style, and maintainability. Separate proven issues from optional improvements.
+
+Prompt 3:Diagnose the intentional Jenkins failure
+
+Review the following Jenkins test failure for a C++ multiplication program. The intended behaviour is to multiply two integer arguments. Identify the root cause, recommend the smallest possible fix, suggest one regression test that detects the mistake, and explain why Jenkins marked the build as failed. Treat the diagnosis as a hypothesis that must be verified by another build.

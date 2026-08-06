@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+workspace/settlement_engine
+workspace/settlement_engine.exe
+logs/*.jsonl
+state/*.json
+candidates/*.cpp

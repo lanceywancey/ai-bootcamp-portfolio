@@ -1,0 +1,11 @@
+Why AI-generated code may fail: 
+AI can misunderstand the requirements, miss edge cases, or produce code that looks correct but does not actually work.
+
+Why automated verification is important: 
+Tests and Jenkins confirm whether the code works and help detect bugs after changes.
+
+Strengths and weaknesses of AI tools: 
+AI is useful for generating ideas, test cases, and debugging suggestions, but its answers can still be incorrect and must be reviewed.
+
+Why subsystem decomposition is useful: 
+Splitting the system into smaller parts makes testing easier and helps identify exactly where the problem is.

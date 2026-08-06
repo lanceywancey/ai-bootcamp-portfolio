@@ -1,0 +1,8 @@
+{
+  "temperature_file": "numbers.txt",
+  "average_calculator_exe": "tools/average_calculator.exe",
+  "weather_url": "http://localhost:60004/current_temperature",
+  "loop_interval_seconds": 20,
+  "timeout_seconds": 120,
+  "max_iterations": 6
+}

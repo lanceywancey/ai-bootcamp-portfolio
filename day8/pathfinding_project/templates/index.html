@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI-Assisted Pathfinding System</title>
+    <style>
+        :root {
+            font-family: Arial, sans-serif;
+            color: #172033;
+            background: #eef2f7;
+        }
+        body { margin: 0; }
+        header {
+            background: #172033;
+            color: white;
+            padding: 18px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header h1 { margin: 0; font-size: 1.35rem; }
+        header a, header button {
+            color: white;
+            background: transparent;
+            border: 1px solid #93a3be;
+            border-radius: 7px;
+            padding: 8px 12px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        main {
+            max-width: 1120px;
+            margin: 24px auto;
+            padding: 0 18px 40px;
+        }
+        .panel {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 5px 18px rgba(20, 32, 55, 0.08);
+        }
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 12px;
+            align-items: end;
+        }
+        label { font-weight: 700; display: block; margin-bottom: 6px; }
+        select, input, button {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #c8d1df;
+            border-radius: 7px;
+        }
+        .primary {
+            background: #2154a3;
+            color: white;
+            border: 0;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .result {
+            border-left: 5px solid #1f8a55;
+            background: #eefaf3;
+        }
+        .error {
+            border-left: 5px solid #b23a3a;
+            background: #fff1f1;
+        }
+        .map-wrapper { overflow-x: auto; }
+        svg {
+            width: 100%;
+            min-width: 760px;
+            height: auto;
+            border: 1px solid #d8dee8;
+            border-radius: 10px;
+            background: #fbfcfe;
+        }
+        .edge { stroke: #8e99aa; stroke-width: 4; }
+        .edge.route { stroke: #d64b3c; stroke-width: 8; }
+        .edge-label {
+            font-size: 13px;
+            fill: #4d596b;
+            paint-order: stroke;
+            stroke: white;
+            stroke-width: 4px;
+        }
+        .node-shape { stroke: #24324b; stroke-width: 2; }
+        .type-0 { fill: #76c893; }
+        .type-1 { fill: #ffd166; }
+        .type-2 { fill: #63a4ff; }
+        .type-3 { fill: #adb5bd; }
+        .type-4 { fill: #a7d88d; }
+        .node-label { font-size: 14px; font-weight: 700; text-anchor: middle; }
+        .node-sub { font-size: 12px; text-anchor: middle; }
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+        .swatch {
+            width: 14px;
+            height: 14px;
+            border: 1px solid #24324b;
+            display: inline-block;
+            margin-right: 5px;
+            vertical-align: -2px;
+        }
+        @media (max-width: 760px) {
+            .controls { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>AI-Assisted Pathfinding System</h1>
+    <div>
+        {% if is_editor %}
+        <a href="{{ url_for('editor') }}">Open editor</a>
+        <form action="{{ url_for('editor_logout') }}" method="post" style="display:inline">
+            <button type="submit">Log out</button>
+        </form>
+        {% else %}
+        <a href="{{ url_for('editor_login') }}">Editor login</a>
+        {% endif %}
+    </div>
+</header>
+
+<main>
+    <section class="panel">
+        <h2>Find the shortest path</h2>
+        <form method="post" class="controls">
+            <div>
+                <label for="start_id">Start node</label>
+                <select id="start_id" name="start_id" required>
+                    {% for node in nodes %}
+                    <option value="{{ node.node_id }}"
+                        {% if selected_start == node.node_id %}selected{% endif %}>
+                        {{ node.node_id }} — {{ node.name.replace('_', ' ') }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="end_id">End node</label>
+                <select id="end_id" name="end_id" required>
+                    {% for node in nodes %}
+                    <option value="{{ node.node_id }}"
+                        {% if selected_end == node.node_id %}selected{% endif %}>
+                        {{ node.node_id }} — {{ node.name.replace('_', ' ') }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button class="primary" type="submit">Find path</button>
+        </form>
+    </section>
+
+    {% if result %}
+    <section class="panel result">
+        <h2>Pathfinding result</h2>
+        <p><strong>Shortest path:</strong> {{ result.path | join(' → ') }}</p>
+        <p><strong>Total distance:</strong> {{ distance_label }}</p>
+    </section>
+    {% endif %}
+
+    {% if error_message %}
+    <section class="panel error">
+        <h2>Unable to find a path</h2>
+        <p>{{ error_message }}</p>
+    </section>
+    {% endif %}
+
+    <section class="panel">
+        <h2>Map visualisation</h2>
+        <div class="map-wrapper">
+            <svg viewBox="0 0 900 520" role="img" aria-label="Pathfinding map">
+                {% for edge in svg_edges %}
+                <line
+                    x1="{{ edge.x1 }}" y1="{{ edge.y1 }}"
+                    x2="{{ edge.x2 }}" y2="{{ edge.y2 }}"
+                    class="edge {% if edge.highlighted %}route{% endif %}">
+                </line>
+                <text
+                    x="{{ edge.label_x }}"
+                    y="{{ edge.label_y }}"
+                    class="edge-label">{{ edge.distance }}</text>
+                {% endfor %}
+
+                {% for node in svg_nodes %}
+                    {% if node.type_id == 4 %}
+                    <circle
+                        cx="{{ node.x }}" cy="{{ node.y }}" r="28"
+                        class="node-shape type-{{ node.type_id }}">
+                    </circle>
+                    {% elif node.type_id == 2 %}
+                    <rect
+                        x="{{ node.x - 34 }}" y="{{ node.y - 34 }}"
+                        width="68" height="68" rx="7"
+                        class="node-shape type-{{ node.type_id }}">
+                    </rect>
+                    {% elif node.type_id == 1 %}
+                    <rect
+                        x="{{ node.x - 34 }}" y="{{ node.y - 19 }}"
+                        width="68" height="38" rx="5"
+                        class="node-shape type-{{ node.type_id }}">
+                    </rect>
+                    {% else %}
+                    <rect
+                        x="{{ node.x - 38 }}" y="{{ node.y - 25 }}"
+                        width="76" height="50" rx="6"
+                        class="node-shape type-{{ node.type_id }}">
+                    </rect>
+                    {% endif %}
+                    <text x="{{ node.x }}" y="{{ node.y + 4 }}" class="node-label">
+                        {{ node.id }}
+                    </text>
+                    <text x="{{ node.x }}" y="{{ node.y + 48 }}" class="node-sub">
+                        {{ node.name }}
+                    </text>
+                {% endfor %}
+            </svg>
+        </div>
+        <div class="legend">
+            <span><span class="swatch type-0"></span>School</span>
+            <span><span class="swatch type-1"></span>Shop</span>
+            <span><span class="swatch type-2"></span>Mall</span>
+            <span><span class="swatch type-3"></span>HDB</span>
+            <span><span class="swatch type-4"></span>Park</span>
+            <span><strong>Red line:</strong> selected route</span>
+        </div>
+    </section>
+</main>
+</body>
+</html>

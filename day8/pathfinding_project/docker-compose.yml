@@ -1,0 +1,11 @@
+services:
+  pathfinding-app:
+    build: .
+    container_name: day8-pathfinding-app
+    ports:
+      - "60003:5000"
+    environment:
+      EDITOR_PASSWORD: "bootcamp123"
+      FLASK_SECRET_KEY: "replace-this-for-real-use"
+    volumes:
+      - ./data:/app/data

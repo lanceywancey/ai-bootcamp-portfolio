@@ -6,6 +6,12 @@ test_cases = [
     (0, 0, 0),
     (-3, 4, -12),
     (-3, -4, 12),
+
+    # Additional AI-reviewed test cases
+    (7, -5, -35),          # positive × negative
+    (0, -100, 0),          # zero × negative
+    (1, 9999, 9999),       # multiplicative identity
+    (123, 456, 56088),     # larger positive values
 ]
 
 all_passed = True
